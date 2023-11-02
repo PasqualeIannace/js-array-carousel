@@ -20,7 +20,9 @@ const imgSrc = [
     }
 
     let imgPosition = 0;
+    imgsArray[imgPosition].classList.add("zId1");
 
+    // TASTO AVANTI
     function next() {
         if(imgPosition == 0) {
             imgsArray[imgPosition].classList.add("zId1");
@@ -30,9 +32,25 @@ const imgSrc = [
             imgsArray[imgPosition].classList.add("zId1");
             imgPosition++;
         } else {
-            console.log("posizione: ", imgPosition, "Array lenght: ", imgsArray.length)
             imgsArray[imgPosition - 1].classList.remove("zId1");
             imgPosition = 0;
             imgsArray[imgPosition].classList.add("zId1");
+        }
+    }
+
+    // TASTO INDIETRO
+    function back() {
+        if(imgPosition == imgsArray.length) {
+            // imgsArray[imgPosition].classList.remove("zId1");
+            imgPosition--;
+            imgsArray[imgPosition].classList.add("zId1");
+        } else if (imgPosition == 0) {
+            imgsArray[imgPosition].classList.remove("zId1");
+            imgPosition = imgsArray.length - 1;
+            imgsArray[imgPosition].classList.add("zId1");
+        } else {
+            imgsArray[imgPosition].classList.remove("zId1");
+            imgsArray[imgPosition - 1].classList.add("zId1");
+            imgPosition--;
         }
     }
