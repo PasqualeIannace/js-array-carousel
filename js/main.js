@@ -12,6 +12,27 @@ const imgSrc = [
         document.getElementById("carousel").innerHTML += immagineDaInserire;
     }
 
+    // prendo array di immagini
+    let imgsArray = document.querySelectorAll("#carousel img");
+
+    for (i = 0; i < imgsArray.length; i++) {
+        console.log(imgsArray[i]);
+    }
+
+    let imgPosition = 0;
+
     function next() {
-        console.log("hai cliccato");
+        if(imgPosition == 0) {
+            imgsArray[imgPosition].classList.add("zId1");
+            imgPosition++;
+        } else if (imgPosition < imgsArray.length) {
+            imgsArray[imgPosition - 1].classList.remove("zId1");
+            imgsArray[imgPosition].classList.add("zId1");
+            imgPosition++;
+        } else {
+            console.log("posizione: ", imgPosition, "Array lenght: ", imgsArray.length)
+            imgsArray[imgPosition - 1].classList.remove("zId1");
+            imgPosition = 0;
+            imgsArray[imgPosition].classList.add("zId1");
+        }
     }

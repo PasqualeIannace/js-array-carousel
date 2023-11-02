@@ -27,3 +27,11 @@ a {
     height: 100%;
     object-fit: cover;
 }
+
+.zId1 {
+    z-index: 1;
+}
+
+.zId0 {
+    z-index: 0;
+}
